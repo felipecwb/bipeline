@@ -1,0 +1,48 @@
+#!/bin/bash
+
+MYDIR=$(dirname $BASH_SOURCE)
+
+source $MYDIR/bipeline.sh
+
+clean() {
+	linfo "Cleaning the mess!"
+	return 0
+}
+
+configure() {
+	linfo "Configuring that!"
+	return 0
+}
+
+deps() {
+	ldebug "dependencies!"
+	return 0
+}
+
+build() {
+	linfo "build blocks!"
+	return 0
+}
+
+tests() {
+	lwarn "Nothing passes!"
+	lok "but its OK!"
+	lsuccess "its a succes"
+	lsuccess "failure is experience!"
+	return 0
+}
+
+deploy() {
+	linfo "DEPLOYING!"
+	lsuccess "Success!"
+	return 0
+}
+
+
+custom() {
+	return 0
+}
+
+PROJECT=example-bipeline.sh
+bipeline $PROJECT $1
+
