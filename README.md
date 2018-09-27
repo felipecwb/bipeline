@@ -4,7 +4,7 @@ Bipeline - use a simple bash to pipeline your steps to prod PS: Makefile does it
 ### EXAMPLE:
 
 use: `example_pipeline.sh`
-```
+```sh
 #!/bin/bash
 
 MYDIR=$(dirname $BASH_SOURCE)
@@ -45,4 +45,3 @@ PROJECT=example-bipeline.sh
 bipeline $PROJECT $@
 
 ```
-
