@@ -40,6 +40,8 @@ deploy() {
 
 
 custom() {
+	lwarn 'this works?'
+	lsuccess "Success!"
 	return 0
 }
 

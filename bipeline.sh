@@ -12,9 +12,7 @@ _help() {
         exit 1
 }
 
-bipeline () { run_bipeline $@; }
-
-run_bipeline() {
+bipeline() {
 	PROJECT=${PROJECT:-$1}
 	TARGET="${2:-default}"
 	
@@ -28,18 +26,11 @@ run_bipeline() {
 	linfo "| TARGET: $TARGET"
 	linfo "+-------------------------------------"
 
-	case "$TARGET" in
-		clean|deps|configure|build|deploy)
-			step_exec $TARGET
-			exit $?
-			;;
-		default)
-			default
-			exit $?
-			;;
-		*)
-			_help $PROJECT
-			;;
-	esac
+	if type $TARGET 1>/dev/null 2>&1; then
+		step_exec $TARGET
+		exit $?
+	fi
+
+	_help $PROJECT
 }
 
